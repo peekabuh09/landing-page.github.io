@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuteness Teeth Dental — Your Dream Smile Starts Here</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --blue: #1a5cff;
+    --blue-mid: #2e6fff;
+    --sky: #e8f0ff;
+    --sky-deep: #ccdcff;
+    --mint: #e6f7f4;
+    --mint-acc: #00b896;
+    --white: #ffffff;
+    --off: #f7f9fe;
+    --gray: #6b7a99;
+    --dark: #1c2340;
+    --gold: #f0c040;
+    --radius: 16px;
+    --radius-lg: 28px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+  /* ─── NAV ─────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(26,92,255,0.08);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700; color: var(--navy);
+  }
+
+  .nav-logo span {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px;
+    background: var(--blue); border-radius: 10px;
+    font-size: 20px;
+  }
+
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--gray); text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--blue); }
+
+  .nav-cta {
+    background: var(--blue); color: #fff;
+    padding: 10px 22px; border-radius: 50px; font-size: 14px; font-weight: 600;
+    text-decoration: none; transition: background .2s, transform .15s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: #0040d8; transform: translateY(-1px); }
+
+  .nav-mobile-cta { display: none; }
+
+  /* ─── HERO ────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 5% 60px;
+    background: linear-gradient(135deg, #f0f5ff 0%, #e8f0ff 40%, #fff 100%);
+    position: relative;
+    overflow: hidden;
+    gap: 2rem;
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -120px;
+    width: 560px; height: 560px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,92,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  #hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: 10%;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,184,150,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(26,92,255,0.1); border: 1px solid rgba(26,92,255,0.2);
+    color: var(--blue); border-radius: 50px;
+    padding: 6px 16px; font-size: 13px; font-weight: 600;
+    margin-bottom: 1.25rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--mint-acc);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .6; transform: scale(1.3); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-content h1 {
+    font-size: clamp(36px, 4.5vw, 58px);
+    line-height: 1.12;
+    color: var(--navy);
+    margin-bottom: 1.25rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  .hero-content h1 em {
+    font-style: normal;
+    color: var(--blue);
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero-content h1 em::after {
+    content: '';
+    position: absolute; left: 0; bottom: -4px; right: 0;
+    height: 3px;
+    background: var(--blue);
+    border-radius: 2px;
+    opacity: 0.35;
+  }
+
+  .hero-sub {
+    font-size: 18px; font-weight: 300; color: var(--gray);
+    line-height: 1.65; max-width: 460px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+    margin-bottom: 2.5rem;
+  }
+
+  .btn-primary {
+    background: var(--blue); color: #fff;
+    padding: 16px 32px; border-radius: 50px;
+    font-size: 16px; font-weight: 600; text-decoration: none;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 6px 24px rgba(26,92,255,0.3);
+  }
+  .btn-primary:hover { background: #0040d8; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(26,92,255,0.4); }
+
+  .btn-ghost {
+    color: var(--blue); font-size: 15px; font-weight: 600;
+    text-decoration: none; display: flex; align-items: center; gap: 6px;
+    transition: gap .2s;
+  }
+  .btn-ghost:hover { gap: 10px; }
+  .btn-ghost svg { flex-shrink: 0; }
+
+  .hero-trust {
+    display: flex; align-items: center; gap: 12px;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+
+  .trust-avatars {
+    display: flex;
+  }
+  .trust-avatars span {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 2px solid #fff;
+    background: var(--sky-deep);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600; color: var(--blue);
+    margin-left: -8px;
+  }
+  .trust-avatars span:first-child { margin-left: 0; }
+
+  .trust-text { font-size: 13px; color: var(--gray); line-height: 1.4; }
+  .trust-text strong { color: var(--dark); font-weight: 600; }
+
+  .stars { color: #f5a623; font-size: 13px; }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative; z-index: 1;
+    display: flex; justify-content: center; align-items: center;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 24px 64px rgba(26,92,255,0.12), 0 4px 16px rgba(0,0,0,0.06);
+    overflow: hidden;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .hero-card-img {
+    background: linear-gradient(160deg, #ccdcff 0%, #a8c4ff 40%, #7aa8ff 100%);
+    height: 280px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .smile-icon {
+    font-size: 100px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hero-card-img .badge-float {
+    position: absolute; bottom: 16px; left: 16px;
+    background: #fff; border-radius: 12px;
+    padding: 8px 14px; display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 13px; font-weight: 600; color: var(--dark);
+  }
+  .badge-float .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mint-acc); }
+
+  .hero-card-body {
+    padding: 20px 22px 22px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .stat-row { display: flex; gap: 12px; }
+  .stat-pill {
+    flex: 1;
+    background: var(--off); border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 12px; color: var(--gray); font-weight: 500;
+  }
+  .stat-pill strong { display: block; font-size: 18px; font-weight: 700; color: var(--navy); }
+
+  /* ─── OFFER BANNER ────────────────────────── */
+  #offer {
+    background: linear-gradient(90deg, #0a1628, #1a3d8f, #0a1628);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .offer-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 5%; gap: 1.5rem; flex-wrap: wrap;
+  }
+
+  .offer-tag {
+    background: var(--gold); color: var(--navy);
+    padding: 5px 14px; border-radius: 50px;
+    font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    flex-shrink: 0;
+  }
+
+  .offer-text { flex: 1; min-width: 200px; }
+  .offer-text h3 {
+    font-family: 'Playfair Display', serif;
+    color: #fff; font-size: 22px; margin-bottom: 4px;
+  }
+  .offer-text p { color: rgba(255,255,255,0.65); font-size: 14px; }
+
+  .offer-countdown {
+    display: flex; gap: 10px; align-items: center;
+  }
+  .count-box {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px; padding: 10px 14px; text-align: center; min-width: 56px;
+  }
+  .count-box .num { font-size: 24px; font-weight: 700; color: #fff; display: block; font-variant-numeric: tabular-nums; }
+  .count-box .lbl { font-size: 10px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: .06em; }
+  .count-sep { font-size: 22px; color: rgba(255,255,255,0.4); font-weight: 300; }
+
+  .offer-btn {
+    background: var(--gold); color: var(--navy);
+    padding: 14px 28px; border-radius: 50px;
+    font-size: 15px; font-weight: 700; text-decoration: none;
+    transition: transform .15s, box-shadow .2s;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .offer-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(240,192,64,0.4); }
+
+  /* ─── BENEFITS ────────────────────────────── */
+  section { padding: 90px 5%; }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--blue); font-size: 13px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+  .section-label::before {
+    content: ''; width: 24px; height: 2px; background: var(--blue); border-radius: 2px;
+  }
+
+  .section-head { font-size: clamp(28px, 3.5vw, 42px); color: var(--navy); margin-bottom: 0.75rem; line-height: 1.2; }
+  .section-sub { font-size: 17px; color: var(--gray); max-width: 520px; line-height: 1.65; margin-bottom: 3rem; }
+
+  #benefits { background: var(--off); }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .benefit-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 28px 26px;
+    border: 1px solid rgba(26,92,255,0.08);
+    transition: transform .2s, box-shadow .2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .benefit-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,92,255,0.1); }
+
+  .benefit-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--mint-acc));
+    border-radius: 3px 3px 0 0;
+    opacity: 0;
+    transition: opacity .2s;
+  }
+  .benefit-card:hover::before { opacity: 1; }
+
+  .benefit-icon {
+    width: 52px; height: 52px;
+    background: var(--sky); border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; margin-bottom: 16px;
+  }
+
+  .benefit-card h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .benefit-card p { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+  /* ─── BEFORE & AFTER ─────────────────────── */
+  #before-after { background: #fff; }
+
+  .ba-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .ba-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(26,92,255,0.08);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .ba-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(26,92,255,0.1); }
+
+  .ba-images {
+    display: grid; grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+
+  .ba-side {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ba-side.before { background: linear-gradient(135deg, #f0e8e8, #e0d0d0); }
+  .ba-side.after  { background: linear-gradient(135deg, #ccdcff, #aac4ff); }
+
+  .ba-side .teeth-icon { font-size: 52px; }
+  .ba-side .side-tag {
+    position: absolute; top: 10px;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em;
+    padding: 4px 10px; border-radius: 50px;
+  }
+  .ba-side.before .side-tag { background: rgba(200,50,50,.15); color: #a03030; left: 10px; }
+  .ba-side.after  .side-tag { background: rgba(26,92,255,.15); color: var(--blue); right: 10px; }
+
+  .ba-divider {
+    position: absolute; top: 0; bottom: 0;
+    left: 50%; transform: translateX(-50%);
+    width: 2px; background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+  }
+  .ba-divider-circle {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #fff; border: 2px solid #ddd;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: var(--gray); font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .ba-card-body { padding: 18px 20px 20px; background: #fff; }
+  .ba-card-body h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .ba-card-body p { font-size: 13px; color: var(--gray); }
+
+  /* ─── TESTIMONIALS ────────────────────────── */
+  #testimonials { background: var(--sky); }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .testi-card {
+    background: #fff; border-radius: var(--radius);
+    padding: 28px 26px;
+    border: 1px solid rgba(26,92,255,0.08);
+    transition: transform .2s;
+  }
+  .testi-card:hover { transform: translateY(-3px); }
+
+  .testi-stars { color: #f5a623; font-size: 16px; margin-bottom: 14px; }
+
+  .testi-card blockquote {
+    font-size: 15px; color: var(--dark); line-height: 1.7;
+    font-style: italic; margin-bottom: 18px;
+    border: none; padding: 0;
+  }
+  .testi-card blockquote::before { content: '\201C'; color: var(--blue); font-size: 28px; font-family: 'Playfair Display', serif; line-height: 0; vertical-align: -10px; margin-right: 2px; }
+
+  .testi-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(26,92,255,.07); padding-top: 14px; }
+  .testi-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--sky-deep); display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700; color: var(--blue); flex-shrink: 0;
+  }
+  .testi-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+  .testi-loc { font-size: 12px; color: var(--gray); }
+
+  /* ─── LEAD FORM ───────────────────────────── */
+  #contact {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3d8f 50%, var(--navy) 100%);
+    padding: 90px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contact::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,92,255,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    position: relative; z-index: 1;
+  }
+
+  .contact-info { color: #fff; }
+  .contact-info .section-label { color: var(--gold); }
+  .contact-info .section-label::before { background: var(--gold); }
+  .contact-info .section-head { color: #fff; margin-bottom: 1rem; }
+  .contact-info p { color: rgba(255,255,255,0.65); font-size: 16px; line-height: 1.7; margin-bottom: 2rem; }
+
+  .info-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    margin-bottom: 16px;
+  }
+  .info-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .info-text { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+  .info-text strong { color: #fff; display: block; margin-bottom: 2px; }
+
+  .form-card {
+    background: #fff; border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+  }
+
+  .form-card h3 {
+    font-size: 22px; color: var(--navy); margin-bottom: 6px;
+  }
+  .form-card p { font-size: 14px; color: var(--gray); margin-bottom: 24px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+
+  .field input,
+  .field select {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 15px; font-family: 'DM Sans', sans-serif;
+    color: var(--dark);
+    background: #fff;
+    transition: border-color .2s, box-shadow .2s;
+    outline: none;
+    appearance: none;
+  }
+
+  .field input:focus,
+  .field select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(26,92,255,0.12);
+  }
+
+  .field input::placeholder { color: #aab4c8; }
+
+  .select-wrap { position: relative; }
+  .select-wrap::after {
+    content: '▾'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+    color: var(--gray); pointer-events: none; font-size: 14px;
+  }
+
+  .form-submit {
+    width: 100%;
+    background: var(--blue); color: #fff;
+    padding: 16px; border-radius: 12px;
+    font-size: 16px; font-weight: 700;
+    border: none; cursor: pointer;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    margin-top: 4px;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 6px 24px rgba(26,92,255,0.35);
+  }
+  .form-submit:hover { background: #0040d8; transform: translateY(-1px); box-shadow: 0 10px 30px rgba(26,92,255,0.45); }
+
+  .form-guarantee {
+    display: flex; align-items: center; gap: 8px; justify-content: center;
+    margin-top: 14px; font-size: 12px; color: var(--gray);
+  }
+
+  .form-card .offer-strip {
+    background: linear-gradient(90deg, #e8f0ff, #d4e4ff);
+    border-radius: 10px; padding: 12px 16px;
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(26,92,255,0.15);
+  }
+  .offer-strip-icon { font-size: 22px; flex-shrink: 0; }
+  .offer-strip-text { font-size: 13px; color: var(--navy); font-weight: 600; line-height: 1.4; }
+  .offer-strip-text span { color: var(--blue); }
+
+  /* ─── SUCCESS STATE ───────────────────────── */
+  #success-msg {
+    display: none;
+    text-align: center; padding: 24px 16px;
+  }
+  #success-msg .check { font-size: 48px; margin-bottom: 12px; }
+  #success-msg h3 { color: var(--navy); font-size: 20px; margin-bottom: 6px; }
+  #success-msg p { color: var(--gray); font-size: 14px; }
+
+  /* ─── FOOTER ──────────────────────────────── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.5);
+    text-align: center; padding: 28px 5%;
+    font-size: 13px;
+  }
+  footer strong { color: #fff; }
+
+  /* ─── RESPONSIVE ──────────────────────────── */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; text-align: center; padding-top: 90px; }
+    .hero-sub { margin: 0 auto 2rem; }
+    .hero-actions { justify-content: center; }
+    .hero-trust { justify-content: center; }
+    .hero-visual { margin-top: 2rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    .offer-inner { flex-direction: column; align-items: flex-start; }
+    .offer-countdown { align-self: flex-start; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 4%; }
+    .nav-links { display: none; }
+    .nav-mobile-cta { display: block; }
+    .nav-cta.desktop { display: none; }
+    section { padding: 64px 4%; }
+    #contact { padding: 64px 4%; }
+    .form-card { padding: 24px 20px; }
+    .hero-content h1 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span>🦷</span>
+    Cuteness Teeth
+  </div>
+  <div class="nav-links">
+    <a href="#benefits">Services</a>
+    <a href="#before-after">Results</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact">Book Now</a>
+  </div>
+  <a href="#contact" class="nav-cta desktop">Free Consultation →</a>
+  <a href="#contact" class="nav-cta nav-mobile-cta" style="font-size:13px;padding:8px 16px;">Book Free</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Now accepting new patients · Quezon City</div>
+    <h1>Your Most<br><em>Beautiful Smile</em><br>Starts Here</h1>
+    <p class="hero-sub">Expert dental care with a gentle touch. From cleanings to complete smile transformations — we make every visit comfortable and every smile unforgettable.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book Free Consultation →</a>
+      <a href="#before-after" class="btn-ghost">
+        See Results
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-avatars">
+        <span>MG</span><span>JR</span><span>AL</span><span>+</span>
+      </div>
+      <div class="trust-text">
+        <div class="stars">★★★★★</div>
+        <div>Trusted by <strong>2,000+ happy patients</strong> across the Philippines</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-img">
+        <div class="smile-icon">😁</div>
+        <div class="badge-float">
+          <div class="dot"></div>
+          Accepting patients today
+        </div>
+      </div>
+      <div class="hero-card-body">
+        <div class="stat-row">
+          <div class="stat-pill"><strong>2,000+</strong>Happy Patients</div>
+          <div class="stat-pill"><strong>10+</strong>Yrs Experience</div>
+          <div class="stat-pill"><strong>4.9★</strong>Google Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIMITED OFFER BANNER -->
+<div id="offer">
+  <div class="offer-inner">
+    <span class="offer-tag">🔥 Limited Offer</span>
+    <div class="offer-text">
+      <h3>FREE Consultation + 20% Off First Treatment</h3>
+      <p>Book this week and save. Offer valid for new patients only.</p>
+    </div>
+    <div class="offer-countdown">
+      <div class="count-box"><span class="num" id="h">23</span><span class="lbl">Hours</span></div>
+      <span class="count-sep">:</span>
+      <div class="count-box"><span class="num" id="m">59</span><span class="lbl">Mins</span></div>
+      <span class="count-sep">:</span>
+      <div class="count-box"><span class="num" id="s">59</span><span class="lbl">Secs</span></div>
+    </div>
+    <a href="#contact" class="offer-btn">Claim Offer Now</a>
+  </div>
+</div>
+
+<!-- BENEFITS -->
+<section id="benefits">
+  <div class="section-label">Why Choose Us</div>
+  <h2 class="section-head">Dental Care You Can<br>Actually Look Forward To</h2>
+  <p class="section-sub">We combine the latest dental technology with a warm, patient-first approach — so you always leave feeling great.</p>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon">🩺</div>
+      <h3>Comprehensive Dental Services</h3>
+      <p>From routine cleanings and fillings to advanced cosmetic procedures — all your dental needs under one roof.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">😌</div>
+      <h3>Pain-Free Experience</h3>
+      <p>Modern techniques and gentle hands ensure every visit is comfortable, even for the most anxious patients.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🏆</div>
+      <h3>Experienced Specialists</h3>
+      <p>Our board-certified dentists bring 10+ years of combined expertise in cosmetic and restorative dentistry.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">💰</div>
+      <h3>Transparent, Affordable Pricing</h3>
+      <p>No surprise fees. We provide clear treatment plans upfront so you know exactly what you're paying for.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">⚡</div>
+      <h3>Same-Day Appointments</h3>
+      <p>Dental emergencies can't wait. We offer same-day slots for urgent cases and quick scheduling for new patients.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🦷</div>
+      <h3>State-of-the-Art Technology</h3>
+      <p>Digital X-rays, laser dentistry, and 3D scanning for faster, more precise, and less invasive treatments.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE & AFTER -->
+<section id="before-after">
+  <div class="section-label">Real Results</div>
+  <h2 class="section-head">Smile Transformations<br>That Speak for Themselves</h2>
+  <p class="section-sub">See the life-changing results our patients have experienced with our cosmetic and restorative treatments.</p>
+  <div class="ba-grid">
+    <div class="ba-card">
+      <div class="ba-images">
+        <div class="ba-side before">
+          <span class="side-tag">Before</span>
+          <span class="teeth-icon">😬</span>
+        </div>
+        <div class="ba-side after">
+          <span class="side-tag">After</span>
+          <span class="teeth-icon">😁</span>
+        </div>
+        <div class="ba-divider"><div class="ba-divider-circle">↔</div></div>
+      </div>
+      <div class="ba-card-body">
+        <h3>Teeth Whitening</h3>
+        <p>3–4 shades brighter in a single 60-minute session</p>
+      </div>
+    </div>
+    <div class="ba-card">
+      <div class="ba-images">
+        <div class="ba-side before">
+          <span class="side-tag">Before</span>
+          <span class="teeth-icon">😖</span>
+        </div>
+        <div class="ba-side after">
+          <span class="side-tag">After</span>
+          <span class="teeth-icon">🤩</span>
+        </div>
+        <div class="ba-divider"><div class="ba-divider-circle">↔</div></div>
+      </div>
+      <div class="ba-card-body">
+        <h3>Porcelain Veneers</h3>
+        <p>Perfectly shaped, natural-looking veneers placed in just 2 visits</p>
+      </div>
+    </div>
+    <div class="ba-card">
+      <div class="ba-images">
+        <div class="ba-side before">
+          <span class="side-tag">Before</span>
+          <span class="teeth-icon">😟</span>
+        </div>
+        <div class="ba-side after">
+          <span class="side-tag">After</span>
+          <span class="teeth-icon">😍</span>
+        </div>
+        <div class="ba-divider"><div class="ba-divider-circle">↔</div></div>
+      </div>
+      <div class="ba-card-body">
+        <h3>Invisalign Braces</h3>
+        <p>Straighter smile in 6–12 months with invisible aligners</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-label">Patient Reviews</div>
+  <h2 class="section-head">2,000+ Patients Can't<br>Be Wrong</h2>
+  <p class="section-sub">Don't take our word for it — hear from real patients who transformed their smiles with us.</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>I used to be so self-conscious about my smile. After veneers at Cuteness Teeth, I can't stop smiling! The team was so patient and kind throughout the whole process. 100% worth it.</blockquote>
+      <div class="testi-author">
+        <div class="testi-avatar">MG</div>
+        <div>
+          <div class="testi-name">Maria Garcia</div>
+          <div class="testi-loc">Quezon City · Veneers Patient</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>Best dental experience I've ever had in the Philippines. Dr. Santos explained everything clearly, no hidden charges, and my teeth whitening results are incredible. Will definitely come back!</blockquote>
+      <div class="testi-author">
+        <div class="testi-avatar">JR</div>
+        <div>
+          <div class="testi-name">Jose Reyes</div>
+          <div class="testi-loc">Marikina · Whitening Patient</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>I was terrified of dentists but the team here completely changed that. Super gentle, very professional, and the clinic is spotless. My Invisalign journey has been amazing so far!</blockquote>
+      <div class="testi-author">
+        <div class="testi-avatar">AL</div>
+        <div>
+          <div class="testi-name">Ana Lim</div>
+          <div class="testi-loc">Pasig · Invisalign Patient</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD CAPTURE -->
+<section id="contact" style="padding:90px 5%;">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-label">Book Your Visit</div>
+      <h2 class="section-head">Get Your FREE Consultation Today</h2>
+      <p>Fill in the form and our team will reach out within 24 hours to confirm your slot. No obligation, no pressure — just a friendly chat about your smile goals.</p>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div class="info-text"><strong>Clinic Location</strong>Unit 3B, Smile Tower, Timog Ave, Quezon City, Metro Manila</div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div class="info-text"><strong>Call or Text Us</strong>+63 917 123 4567 · Mon–Sat 9am–7pm</div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">✉️</div>
+        <div class="info-text"><strong>Email Us</strong>hello@cutenessteeth.ph</div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">💬</div>
+        <div class="info-text"><strong>Facebook & Instagram</strong>@CutenessTeethDental</div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="offer-strip">
+        <span class="offer-strip-icon">🎁</span>
+        <div class="offer-strip-text">You qualify for a <span>FREE Consultation + 20% off</span> your first treatment!</div>
+      </div>
+      <h3>Book Your Free Slot</h3>
+      <p>Takes less than 60 seconds. We'll handle the rest.</p>
+
+      <div id="form-area">
+        <form id="lead-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="field">
+              <label for="fname">First Name *</label>
+              <input type="text" id="fname" placeholder="Maria" required>
+            </div>
+            <div class="field">
+              <label for="lname">Last Name *</label>
+              <input type="text" id="lname" placeholder="Santos" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="phone">Phone / Viber Number *</label>
+            <input type="tel" id="phone" placeholder="+63 917 000 0000" required>
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="maria@email.com">
+          </div>
+          <div class="field">
+            <label for="service">Service You're Interested In *</label>
+            <div class="select-wrap">
+              <select id="service" required>
+                <option value="" disabled selected>Choose a service…</option>
+                <option>Teeth Whitening</option>
+                <option>Porcelain Veneers</option>
+                <option>Invisalign / Braces</option>
+                <option>Dental Implants</option>
+                <option>Dental Cleaning & Check-Up</option>
+                <option>Tooth Extraction</option>
+                <option>Dentures</option>
+                <option>Other / Not Sure Yet</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="form-submit">Claim My FREE Consultation →</button>
+        </form>
+        <div class="form-guarantee">🔒 Your information is 100% private and secure</div>
+      </div>
+
+      <div id="success-msg">
+        <div class="check">✅</div>
+        <h3>You're all set, <span id="fname-confirm"></span>!</h3>
+        <p>Our team will call or text you within 24 hours to confirm your free consultation slot. We can't wait to meet you! 😁</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>Cuteness Teeth Dental</strong> · Quezon City, Philippines · All Rights Reserved</p>
+  <p style="margin-top:6px;">Made with ❤️ for beautiful smiles across the Philippines</p>
+</footer>
+
+<script>
+  // Countdown timer
+  (function() {
+    var h = 23, m = 59, s = 59;
+    function tick() {
+      s--;
+      if (s < 0) { s = 59; m--; }
+      if (m < 0) { m = 59; h--; }
+      if (h < 0) { h = 23; m = 59; s = 59; }
+      document.getElementById('h').textContent = String(h).padStart(2,'0');
+      document.getElementById('m').textContent = String(m).padStart(2,'0');
+      document.getElementById('s').textContent = String(s).padStart(2,'0');
+    }
+    setInterval(tick, 1000);
+  })();
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    var name = document.getElementById('fname').value;
+    document.getElementById('fname-confirm').textContent = name;
+    document.getElementById('form-area').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  }
+
+  // Smooth nav highlight
+  var sections = document.querySelectorAll('section[id], div[id="offer"]');
+  var navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function() {
+    var scrollY = window.pageYOffset;
+    sections.forEach(function(s) {
+      if (s.offsetTop - 100 <= scrollY && s.offsetTop + s.offsetHeight > scrollY) {
+        navLinks.forEach(function(l) {
+          l.style.color = l.getAttribute('href') === '#' + s.id ? '#1a5cff' : '';
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>
